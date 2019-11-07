@@ -1,0 +1,22 @@
+Source: pyang
+Section: contrib/net
+Priority: extra
+Maintainer: Vyatta Package Maintainers <DL-vyatta-help@att.com>
+Build-Depends: debhelper (>= 9~),
+ dh-python,
+ docbook-xsl,
+ git-core,
+ python-all (>= 2.7),
+ python-setuptools,
+ xsltproc
+Standards-Version: 3.9.6
+X-Python-Version: >= 2.7
+
+Package: pyang
+Architecture: all
+Depends: ${python:Depends}, ${misc:Depends}
+Description: Extensible YANG validator and converter in python
+ pyang is a YANG validator, transformator and code generator, written
+ in python. It can be used to validate YANG modules for correctness,
+ to transform YANG modules into other formats, and to generate code
+ from the modules.

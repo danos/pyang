@@ -1,0 +1,25 @@
+#!/usr/bin/make -f
+#DH_VERBOSE = 1
+include /usr/share/dpkg/pkg-info.mk
+
+PYTHON2_VERSIONS = $(shell pyversions -r)
+pyalldo = set -e; $(foreach py, $(PYTHON2_VERSIONS), $(py) $(1);)
+
+%:
+	dh $@ --with python2
+
+override_dh_auto_install:
+	mkdir -p debian/tmp/
+	python setup.py install --root=debian/tmp --prefix=usr --install-layout deb
+	mv debian/tmp/usr/etc debian/tmp
+	dh_auto_install
+
+ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
+override_dh_auto_test:
+	$(call pyalldo, -m unittest discover -vv test/)
+endif
+
+override_dh_auto_clean:
+	$(RM) -r build *.egg-info
+	dh_auto_clean
+
