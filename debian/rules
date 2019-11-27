@@ -2,15 +2,15 @@
 #DH_VERBOSE = 1
 include /usr/share/dpkg/pkg-info.mk
 
-PYTHON2_VERSIONS = $(shell pyversions -r)
-pyalldo = set -e; $(foreach py, $(PYTHON2_VERSIONS), $(py) $(1);)
+PYTHON3_VERSIONS = $(shell pyversions -r)
+pyalldo = set -e; $(foreach py, $(PYTHON3_VERSIONS), $(py) $(1);)
 
 %:
-	dh $@ --with python2
+	dh $@ --with python3
 
 override_dh_auto_install:
 	mkdir -p debian/tmp/
-	python setup.py install --root=debian/tmp --prefix=usr --install-layout deb
+	python3 setup.py install --root=debian/tmp --prefix=usr --install-layout deb
 	mv debian/tmp/usr/etc debian/tmp
 	dh_auto_install
 
