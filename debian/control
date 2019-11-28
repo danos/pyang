@@ -1,6 +1,6 @@
 Source: pyang
 Section: contrib/net
-Priority: extra
+Priority: optional
 Maintainer: Vyatta Package Maintainers <DL-vyatta-help@att.com>
 Build-Depends: debhelper (>= 9~),
  dh-python,
