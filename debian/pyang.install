@@ -1,2 +1,2 @@
 usr
-etc/bash_completion.d/pyang etc/bash_completion.d
+etc/bash_completion.d/pyang usr/share/bash-completion/completions
