@@ -1,3 +1,13 @@
+pyang (1.7.8-4) unstable; urgency=medium
+
+  * Switch PYANG to be installed for Python3
+  * Update bash completion location
+  * Update control file Priority value as recommended by lintian
+  * Revert Makefile change
+  * Switch Makefile from python2 to python3
+
+ -- William Ivory <william.ivory@intl.att.com>  Fri, 03 Apr 2020 11:44:39 +0100
+
 pyang (1.7.8-3) unstable; urgency=medium
 
   * DANOS Import master
